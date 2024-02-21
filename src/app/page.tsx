@@ -5,12 +5,12 @@ export default function Home() {
     <main className="flex flex-col items-center px-3 pt-36">
       <h1 className="text-5xl font-bold tracking-tight lg:text-6xl">Find events around you</h1>
       <p className="mb-12 mt-7 text-2xl opacity-75 lg:text-3xl">
-        Browse more than <span className="font-bold italic text-[#a4f839] underline">10,000 events</span> around you
+        Browse more than <span className="text-accent font-bold italic underline">10,000 events</span> around you
       </p>
 
       <form className="w-full sm:w-[36.25rem]">
         <input
-          className="h-16 w-full rounded-lg bg-white/[7%] px-6 outline-none ring-[#a4f839]/50 transition focus:bg-white/10 focus:ring-2"
+          className="ring-accent/50 h-16 w-full rounded-lg bg-white/[7%] px-6 outline-none transition focus:bg-white/10 focus:ring-2"
           placeholder="Search events in any city..."
           spellCheck={false}
         />
