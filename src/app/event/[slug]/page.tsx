@@ -45,10 +45,10 @@ export default async function EventPage({ params }: EventPageProps) {
             </p>
 
             <button
-              className="bg-blur mt-5 w-[95vw]
-              rounded-md border-2 border-white/10
-              bg-white/20 py-2 text-lg capitalize transition hover:scale-105
-              focus:scale-105 active:scale-[1.02] sm:w-full lg:mt-auto"
+              className="bg-blur state-effects mt-5
+              w-[95vw] rounded-md border-2
+              border-white/10 bg-white/20 py-2 text-lg capitalize
+              sm:w-full lg:mt-auto"
             >
               Get Tickets
             </button>

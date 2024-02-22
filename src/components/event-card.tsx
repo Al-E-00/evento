@@ -10,8 +10,8 @@ export default function EventCard({ event }: EventCardProps) {
   return (
     <Link className="h-[23.75rem] max-w-[31.25rem] flex-1 basis-[20rem]" href={`/event/${event.slug}`}>
       <section
-        className="relative flex h-full w-full flex-col overflow-hidden rounded-xl bg-white/[3%]
-          transition hover:scale-105 active:scale-[1.02]"
+        className="state-effects relative flex h-full w-full
+          flex-col overflow-hidden rounded-xl bg-white/[3%]"
         key={event.id}
       >
         <Image src={event.imageUrl} alt={event.name} width={500} height={280} className="h-[60%] object-cover" />
