@@ -16,7 +16,7 @@ export default async function City({ params }: EventsCityParams) {
 
   return (
     <main className="flex min-h-[110vh] flex-col items-center px-[1.25rem] py-24">
-      <H1>
+      <H1 className="mb-28">
         {city === 'all' && 'All Events'}
         {city !== 'all' && `Events in ${_.capitalize(city)}`}
       </H1>
