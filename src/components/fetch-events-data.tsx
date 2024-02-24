@@ -7,7 +7,12 @@ type FetchEventsDataProps = {
 };
 
 export default async function FetchEventsData({ city, children }: FetchEventsDataProps) {
-  const response = await fetch('https://bytegrad.com/course-assets/projects/evento/api/events?city=' + city);
+  const response = await fetch('https://bytegrad.com/course-assets/projects/evento/api/events?city=' + city, {
+    /* After 5 minutes it will remake a network request */
+    next: {
+      revalidate: 300,
+    },
+  });
   const events: EventoEvent[] = await response.json();
 
   // Pass the events data to the children components

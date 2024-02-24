@@ -5,13 +5,21 @@ import { Suspense } from 'react';
 import Loading from '../loading';
 import FetchEventsData from '@/components/fetch-events-data';
 
-type EventsCityParams = {
+type Props = {
   params: {
     city: string;
   };
 };
 
-export default async function City({ params }: EventsCityParams) {
+export function generateMetadata({ params }: Props) {
+  const city = params.city;
+
+  return {
+    title: city === 'all' ? 'All Events' : `Events in ${_.capitalize(city)}`,
+  };
+}
+
+export default async function City({ params }: Props) {
   const city = params.city;
 
   return (
