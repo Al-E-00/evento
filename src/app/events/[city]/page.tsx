@@ -3,6 +3,7 @@ import H1 from '@/components/h1';
 import _ from 'lodash';
 import { Suspense } from 'react';
 import Loading from '../loading';
+import FetchEventsData from '@/components/fetch-events-data';
 
 type EventsCityParams = {
   params: {
@@ -21,7 +22,9 @@ export default async function City({ params }: EventsCityParams) {
       </H1>
 
       <Suspense fallback={Loading()}>
-        <EventsList city={city} />
+        <FetchEventsData city={city}>
+          <EventsList events={[]} />
+        </FetchEventsData>
       </Suspense>
     </main>
   );
