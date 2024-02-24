@@ -1,4 +1,5 @@
 import { EventoEvent } from '@/lib/types';
+import { getEvents } from '@/lib/utils';
 import React from 'react';
 
 type FetchEventsDataProps = {
@@ -7,13 +8,7 @@ type FetchEventsDataProps = {
 };
 
 export default async function FetchEventsData({ city, children }: FetchEventsDataProps) {
-  const response = await fetch('https://bytegrad.com/course-assets/projects/evento/api/events?city=' + city, {
-    /* After 5 minutes it will remake a network request */
-    next: {
-      revalidate: 300,
-    },
-  });
-  const events: EventoEvent[] = await response.json();
+  const events = await getEvents(city);
 
   // Pass the events data to the children components
   return React.Children.map(children, child => {
