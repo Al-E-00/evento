@@ -2,6 +2,7 @@ import clsx, { ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 import { capitalize } from 'lodash';
 import prisma from './db';
+import { notFound } from 'next/navigation';
 
 export default function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -30,5 +31,10 @@ export async function getEvent(slug: string) {
       slug: slug,
     },
   });
+
+  if (!event) {
+    return notFound();
+  }
+
   return event;
 }
