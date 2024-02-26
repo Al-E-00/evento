@@ -1,4 +1,4 @@
-import { EventoEvent } from '@/lib/types';
+import { EventoEvent } from '@prisma/client';
 import { getEvents } from '@/lib/utils';
 import React from 'react';
 
