@@ -12,7 +12,7 @@ export async function sleep(ms: number) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-export async function getEvents(city: string) {
+export async function getEvents(city: string, page = 1) {
   const events = await prisma.eventoEvent.findMany({
     where: {
       city: city === 'all' ? undefined : capitalize(city),
@@ -20,9 +20,20 @@ export async function getEvents(city: string) {
     orderBy: {
       date: 'asc',
     },
+    take: 6,
+    skip: (page - 1) * 6,
   });
 
-  return events;
+  const totalCount = await prisma.eventoEvent.count({
+    where: {
+      city: city === 'all' ? undefined : capitalize(city),
+    },
+  });
+
+  return {
+    events,
+    totalCount,
+  };
 }
 
 export async function getEvent(slug: string) {
