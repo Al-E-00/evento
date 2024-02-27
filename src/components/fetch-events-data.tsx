@@ -1,5 +1,5 @@
 import { EventoEvent } from '@prisma/client';
-import { getEvents } from '@/lib/utils';
+import { getEvents } from '@/lib/server-utils';
 import React from 'react';
 
 type FetchEventsDataProps = {
