@@ -28,9 +28,7 @@ export default async function EventsPage({ params, searchParams }: EventsPagePro
   //validate params using zod
   //do not allow special characters
   const paramsSchema = z.object({
-    //check that is a valid url containing city names
-    //ex: /^[a-zA-Z-]/
-    city: z.string().refine(city => /^[a-zA-Z\s]+$/.test(decodeURIComponent(city))),
+    city: z.string().refine(city => /^[a-zA-Z\s]/.test(decodeURIComponent(city))),
     page: z.string().optional(),
   });
   let city, page;
